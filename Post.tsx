@@ -6,13 +6,14 @@ interface PostProps {
   id: number;
   text?: string;
   description?: string;
+  imagem?: string;
   removePost: (id: number) => void;
 }
 
-const Post = ({ id, text, description, removePost }: PostProps) => {
+const Post = ({ id, text, description, imagem="./assets/favicon.png", removePost }: PostProps) => {
   return (
     <View style={styles.postContainer}>
-      <Image source={require('./assets/favicon.png')} />
+      <Image source={{ uri: imagem }} style={styles.postImage} />
       <Text style={styles.username}>{text}</Text>
       <Text>{description}</Text>
       <Button title="Remove" onPress={() => removePost(id)} />

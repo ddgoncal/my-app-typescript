@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 interface AddPostProps {
-  addPost: (text: string, description: string) => void;
+  addPost: (text: string, description: string, imagem: string) => void;
 }
 
 const AddPost = ({ addPost }: AddPostProps) => {
@@ -10,7 +10,7 @@ const AddPost = ({ addPost }: AddPostProps) => {
   const [description, setDescription] = useState('');
 
   const handleSubmit = () => {
-    addPost(text, description);
+    addPost(text, description, './assets/favicon.png');
     setText('');
     setDescription('');
   };
