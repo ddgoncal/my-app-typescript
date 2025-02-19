@@ -12,7 +12,8 @@ const Home = ({navigation}: {navigation: NativeStackNavigationProp<any>}) => {
     { id: 1, text: "Teste", description: "Teste de descrição", imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" },
   ]);
 
-
+//converter navigation to bottom tab navigator
+// criar paginas car/home/profile/products
 
 
   const addPost = (text: string, description: string, imagem: string) => {
