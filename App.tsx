@@ -1,30 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Teste } from './Teste';
-import { Wrapper, Wrapperdois} from './Wrapper';
-import Post from './Post';
-
+import React from 'react';
+import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Details from './screens/Details';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Profile from './screens/Profile';
 export default function App() {
-  var a: number = 1;
-  var b: string = "fasd";
-  var nome ="enviamos esta variavel";
-  return (
-    <View style={styles.container}>
-      <a href="https://www.google.com">Google</a>
 
-      <Post text="Teste" description="Teste de descrição" />
-      <Post text="Teste2" description="Teste de descrição2" />
-      <Post text="Teste3" description="Teste de descrição3" />
-      <StatusBar style="auto" />
-    </View>
+  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Details" component={Details} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
